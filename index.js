@@ -13,7 +13,7 @@ helpers.getEmail = address => {
 helpers.isEmail = string => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(string)
 
 helpers.getName = value => {
-  return (value || '').toString().toLowerCase().replace(/[^A-zÀ-ú \']|\\|\]|\[|\^/g, '').replace(/\s\s+/g, ' ').split(' ').reduce((array, word) => {
+  return (value || '').toString().toLowerCase().replace(/[^A-Za-zÀ-ÖØ-öø-ÿ ]/g, '').replace(/\s\s+/g, ' ').split(' ').reduce((array, word) => {
     if (word.length === 1 || ['di', 'de'].includes(word.toLowerCase())) return [...array, word]
     const part = (word[0] || '').toUpperCase() + word.slice(1)
     return [...array, part]
