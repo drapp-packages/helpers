@@ -14,7 +14,7 @@ helpers.isEmail = string => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)
 
 helpers.getName = value => {
   return (value || '').toString().toLowerCase().replace(/[^A-Za-zÀ-ÖØ-öø-ÿ ]/g, '').replace(/\s\s+/g, ' ').split(' ').reduce((array, word) => {
-    if (word.length === 1 || ['di', 'de'].includes(word.toLowerCase())) return [...array, word]
+    if (word.length === 1 || ['di', 'de', 'del'].includes(word.toLowerCase())) return [...array, word]
     const part = (word[0] || '').toUpperCase() + word.slice(1)
     return [...array, part]
   }, []).join(' ')
